@@ -8,7 +8,7 @@
 
 int Inicializa(int sudoku[9][9]) {
 
-	/*Funci髇 que permite inicializar el sudoku. Devuelve un 0 si todo ha
+	/*Funci贸n que permite inicializar el sudoku. Devuelve un 0 si todo ha
 	*ido bien y un 1 si ha habido algun fallo*/
 
 	/*Se utiliza una variable auxiliar para la toma de decisiones*/
@@ -22,8 +22,8 @@ int Inicializa(int sudoku[9][9]) {
 	scanf(" %c", &aux);
 
 	if (aux == '1') {
-		/*Si lee el 1, inicializa desde el teclado mediante la funci髇 escribe
-		*Si esta funci髇 funciona correctamente, devuelve un 0, y mi sudoku
+		/*Si lee el 1, inicializa desde el teclado mediante la funci贸n escribe
+		*Si esta funci贸n funciona correctamente, devuelve un 0, y mi sudoku
 		*contendra todos los valores necesarios, si no imprime un mensaje de
 		*error y devuelve un 1*/
 
@@ -34,9 +34,9 @@ int Inicializa(int sudoku[9][9]) {
 		}
 	}
 	else if (aux == '2') {
-		/*Si lee el 2, inicializa el sudoku desde un fichero mediante la funci髇
+		/*Si lee el 2, inicializa el sudoku desde un fichero mediante la funci贸n
 		*abrefichero.
-		*Si esta funci髇 funciona correctamente, devuelve un 0, y mi sudoku
+		*Si esta funci贸n funciona correctamente, devuelve un 0, y mi sudoku
 		*contendra todos los valores necesarios, si no imprime un mensaje de
 		*error y devuelve un 1*/
 
@@ -53,7 +53,7 @@ int Inicializa(int sudoku[9][9]) {
 
 void Representa(int sudoku[9][9]) {
 
-	/*Funci髇 que representa el sudoku. Se utilizan los caracteres - y | para
+	/*Funci贸n que representa el sudoku. Se utilizan los caracteres - y | para
 	*poder visualizar mejor los diferentes cuadros del sudoku*/
 
 	int i, j;
@@ -82,8 +82,8 @@ void Representa(int sudoku[9][9]) {
 
 int Escribe(int sudoku[9][9]) {
 
-	/*Funci髇 que escribe los elementos del sudoku uno a uno.
-	*Si esta funci髇 funciona correctamente, devuelve un 0, y mi sudoku
+	/*Funci贸n que escribe los elementos del sudoku uno a uno.
+	*Si esta funci贸n funciona correctamente, devuelve un 0, y mi sudoku
 	*contendra todos los valores necesarios, si no imprime un mensaje de
 	*error y devuelve un 1.*/
 
@@ -101,7 +101,7 @@ int Escribe(int sudoku[9][9]) {
 			printf("Columna %d: ", j);
 			fflush(stdin);
 			scanf(" %d", &aux);
-			/*Se utiliza el 0 para indicar que la posici髇 del sudoku es a priori
+			/*Se utiliza el 0 para indicar que la posici贸n del sudoku es a priori
 			*desconocida.*/
 			if (aux >= 0 && aux <= 9) sudoku[i][j] = aux;
 			else return 1;
@@ -115,7 +115,7 @@ int Escribe(int sudoku[9][9]) {
 
 int Resuelve(int sudoku[9][9]) {
 
-	/*Funci髇 que resuelve el sudoku. Devuelve un 0 si todo va bien y 1 si no puede resolver*/
+	/*Funci贸n que resuelve el sudoku. Devuelve un 0 si todo va bien y 1 si no puede resolver*/
 	int i, j, m, a, b, suma, aux, posible;
 	while (1) {
 		int candidatos[9][9][9] = { 0 };
@@ -328,7 +328,7 @@ int Suponer(int sudoku[9][9], int candidatos[9][9][9], int aux, int posible) {
 			Representa(sudoku);
 #endif
 			//se intenta resolver el sudoku con el valor supuesto en la casilla candidato
-			//se entra dentro de un bucle recursivo, en caso de llegar a un sudoku sin soluci髇 se retrocede un paso y se asigna otro valor posible al candidato
+			//se entra dentro de un bucle recursivo, en caso de llegar a un sudoku sin soluci贸n se retrocede un paso y se asigna otro valor posible al candidato
 			if (!Resuelve(sudoku)) return 0;
 			for (a = 0; a<9; a++)
 				for (b = 0; b<9; b++) sudoku[a][b] = auxsudoku[a][b];
